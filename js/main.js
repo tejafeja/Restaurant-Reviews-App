@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
  * Fetch all neighborhoods and set their HTML.
  */
 fetchNeighborhoods = () => {
-  DBHelper.fetchNeighborhoods((error, neighborhoods) => {
+  DBHelper.fetchNeighborhoods((error, uniqueNeighborhoods) => {
     if (error) { // Got an error
       console.error(error);
     } else {
-      self.neighborhoods = neighborhoods;
+      self.neighborhoods = uniqueNeighborhoods;
       fillNeighborhoodsHTML();
     }
   });
@@ -44,11 +44,11 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
  * Fetch all cuisines and set their HTML.
  */
 fetchCuisines = () => {
-  DBHelper.fetchCuisines((error, cuisines) => {
+  DBHelper.fetchCuisines((error, uniqueCuisines) => {
     if (error) { // Got an error!
       console.error(error);
     } else {
-      self.cuisines = cuisines;
+      self.cuisines = uniqueCuisines;
       fillCuisinesHTML();
     }
   });
@@ -180,7 +180,7 @@ createRestaurantHTML = (restaurant) => {
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
-  return li
+  return li;
 }
 
 /**
