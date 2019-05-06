@@ -1,0 +1,112 @@
+/* ====================== Responsiveness on different sizes ====================== */
+
+@media screen and (max-width: 374px) {
+    #restaurants-list li {
+        min-width: 40px;
+        padding: 0px 0px 0px;
+        padding-bottom: 0px;
+        margin: 10px;
+    }
+    #restaurants-list {
+    padding-bottom: 20px;
+    }
+    .container {
+        transform: scale(0.9);
+    }
+    #map {
+        height: 300px;
+        width: 100%;
+    }
+    #inside {
+        width: 100%;
+    }
+    nav h1 a {
+    font-size: 10pt;
+    }
+    nav h1 {
+    padding-top: 4px;
+    }
+    nav {
+        padding: 20px;
+    }
+    h1, p {
+        font-size: 70%;
+    }
+    .filter-options {
+        margin-bottom: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+    #inside {
+        width: 100%;
+    }
+    #restaurants-list li {
+        min-width: 40px;
+        padding: 0px 0px 0px;
+        }
+    #footer {
+        font-size: 6pt;
+    }
+    nav h1 {
+    padding-top: 4px; 
+    font-size: 10px;
+    }
+    h1, p {
+        font-size: 70%;
+    }
+    .filter-options {
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .container {
+        transform: scale(0.9);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #breadcrumb {
+        font-size: 2em;
+    }
+    
+  .restaurant-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .restaurant-info {
+    width: 50%;
+  }
+
+  #reviews-list li p,
+  #restaurant-address,
+  #restaurant-hours {
+    font-size: 1.7em;
+  }
+
+  #restaurant-address {
+    margin: 0;
+    margin-bottom: 0.5em;
+  }
+  #inside {
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .inside {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+}
+
+
