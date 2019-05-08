@@ -62,20 +62,6 @@ h6 {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 20px;
 }
-/* article, 
-aside, 
-canvas, 
-details, 
-figcaption,
-figure, 
-footer, 
-header, 
-hgroup, 
-menu, 
-nav, 
-section {
-	display: block;
-} */
 
 .container {
   width: 100%;
@@ -147,7 +133,7 @@ nav h1 a {
 
 /* Add a color on mouse-over */
 #breadcrumb li a:hover {
-    color: #01447e;
+    color: #01657e;
     text-decoration: underline;
 }
 /* ====================== Map ====================== */

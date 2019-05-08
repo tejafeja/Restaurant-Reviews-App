@@ -1,4 +1,4 @@
-function IndexControler(){
+function IndexController(){
     this._registerServiceWorker();
 };
 
@@ -10,7 +10,7 @@ IndexController.prototype._registerServiceWorker = function () {
     //start service worker registration
     navigator.serviceWorker.register('/sw.js').then(function (reg) {
         // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        console.log('ServiceWorker registration successful with scope: ', reg.scope);
         //check if service worker has been loaded
         if (!navigator.serviceWorker.controller) {
             return;
@@ -35,7 +35,6 @@ IndexController.prototype._registerServiceWorker = function () {
     });
 
     // Ensure refresh is only called once.
-    // This works around a bug in "force update on reload".
     let refreshing;
     navigator.serviceWorker.addEventListener('controllerchange', function () {
         if (refreshing) return;
@@ -43,9 +42,30 @@ IndexController.prototype._registerServiceWorker = function () {
         refreshing = true;
     });
 };
+//check the state of installing service worker
+IndexController.prototype._trackInstalling = function (worker) {
+    const indexController = this;
+    worker.addEventListener('statechange', function () {
+        //if new service worker installed inform user about it
+        if (worker.state == 'installed') {
+            indexController._updateReady(worker);
+        }
+    });
+};
+
+IndexController.prototype._updateReady = function (worker) {
+    let updateNeeded = false;
+    //Display a confirmation box:
+    updateNeeded = confirm("New version available, shall we apply it?");
+    //if update is not need quit 
+    if (!updateNeeded) return;
+    //skipWaiting do the update
+    worker.postMessage({ action: 'skipWaiting' });
+};
+
 //load IndexController function which will register new service worker sw.js once the page is loaded.
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-        new IndexControler();
+        new IndexController();
     });
 };

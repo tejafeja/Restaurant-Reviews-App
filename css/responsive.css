@@ -96,7 +96,7 @@
         position: inherit;
     }    
 }
-/* Mobile screen and headline Name looks responsive */
+/* Mobile screen and headline Name responsiveness */
 @media screen and (min-width: 432px) and (max-width: 767px) {
     nav h1 {
         padding-left: 25%;
