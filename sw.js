@@ -75,6 +75,9 @@ self.addEventListener('fetch', function (event) {
                         cache.put(event.request, responseToCache);
                     });
                  return response;   
+            }).catch(function () {
+                // generic error message when data is not in cache yet, and user is offline
+                return new Response("Please, try again later! :( you are completely offline now!");
             });
         })
     );
